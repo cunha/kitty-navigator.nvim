@@ -38,4 +38,13 @@ end
 
 vim.fn.system("kitten @ set-user-vars ISNVIM=true")
 
+vim.api.nvim_create_autocmd("VimLeavePre", {
+	desc = "Clear ISNVIM user var on leave",
+	group = vim.api.nvim_create_augroup("unset-isnvim-user-var", { clear = true }),
+	pattern = "*",
+	callback = function()
+		vim.fn.system("kitten @ set-user-vars ISNVIM=false")
+	end,
+})
+
 return M
