@@ -33,3 +33,8 @@ map --when-focus-on var:ISNVIM=true kitty_mod+h
 map --when-focus-on var:ISNVIM=true kitty_mod+l
 ```
 
+For this to work over SSH, you need to forward the Kitty control socket by writing the following to `.config/kitty/ssh.conf`.  Please check the Kitty docs for security implications and how to forward the socket only to some hosts.
+
+```text
+forward_remote_control yes
+```
